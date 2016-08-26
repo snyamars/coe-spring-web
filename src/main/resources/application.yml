@@ -1,0 +1,19 @@
+spring:
+  profiles:
+    active: dev
+  application:
+    name: coe-web-promotions
+  cloud:
+    consul:
+      host: localhost
+      port: 8500
+      discovery:
+        healthCheckPath: /health
+        healthCheckInterval: 15s
+    config:
+      profile: dev
+      uri: http://localhost:8888 
+  health:
+    sensitive: false
+hello:
+  world: localvalue

@@ -1,0 +1,3 @@
+spring:
+  application:
+    name: coe-web-promotions
