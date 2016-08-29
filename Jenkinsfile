@@ -3,9 +3,8 @@ node {
    // Mark the code checkout 'stage'...
    stage 'Git Checkout'
 
-   // Get some code from a GitHub repository
+   // Get the microservice code from a GitHub repository
 
-   
    checkout changelog: false, poll: false, scm: [$class: 'GitSCM', branches: [[name: '*/master']], doGenerateSubmoduleConfigurations: false, extensions: [[$class: 'PerBuildTag']], submoduleCfg: [], userRemoteConfigs: [[credentialsId: '146ff225-d9c5-4466-9ae0-3ff4c646ff30', url: 'https://github.com/snyamars/wcw_micro_dashboard.git']]]
 
    // Get the maven tool.
@@ -26,7 +25,7 @@ node {
   
   //sh "${mvnHome}/bin/mvn clean package deploy"
   
-  //sh "${mvnHome}/bin/mvn clean package"
+  sh "${mvnHome}/bin/mvn clean package"
   
    def fileName = "/var/lib/jenkins/workspace/${env.JOB_NAME}/coe-spring-web"
    echo "$fileName"
@@ -53,15 +52,14 @@ node {
   
 stage 'docker build'
   
-  docker.withRegistry('', 'f6ab1d37-c2cf-4636-80b9-7745dffd4695') {
-        def pcImg = docker.build('snyamars007/coe-spring-web')
-        pcImg.push();
-  }
+  // docker.withRegistry('', 'f6ab1d37-c2cf-4636-80b9-7745dffd4695') {
+   //     def pcImg = docker.build('snyamars007/coe-spring-web')
+   //     pcImg.push();
+ // }
   
 
  
- stage 'notifyKubernetes'
-   //sh  "curl -H 'Content-Type: application/json' -X POST -d '{'id': 'wcw-dash','application': 'Warehouse-Application','accesspoint': 'http://172.31.0.233:8080','containers': [{'name': 'mongo', 'replicas': 1, 'cpu': 1100, 'memory': '170M', 'port': 30071},        {'name': 'node', 'replicas': 1, 'cpu': 1100, 'memory': '500M', 'port': 30066, 'image': 'snyamars007/node_dashboard'} ]}' http://54.237.219.53:3306/step3"
-   sh 'curl -vvv -X POST -d @Springwebdeployfile -H "Content-Type: application/json" http://54.237.219.53:3306/step3'
+ //stage 'notifyKubernetes'
+//   sh 'curl -vvv -X POST -d @Springwebdeployfile -H "Content-Type: application/json" http://54.237.219.53:3306/step3'
  
 }//end of node
