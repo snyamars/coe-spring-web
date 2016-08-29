@@ -1,6 +1,6 @@
 #!groovy
 node {
-   // Mark the code checkout 'stage'...
+   // Mark the code checkout 'stage'... chk test1
    stage 'Git Checkout'
 
    // Get the microservice code from a GitHub repository
