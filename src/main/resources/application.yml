@@ -17,3 +17,5 @@ spring:
     sensitive: false
 hello:
   world: localvalue
+  
+  
