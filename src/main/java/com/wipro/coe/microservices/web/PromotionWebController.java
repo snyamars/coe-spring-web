@@ -10,7 +10,6 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 
-import com.wipro.coe.microservices.web.client.SampleClient;
 import com.wipro.coe.microservices.web.domain.Promotion;
 import com.wipro.coe.microservices.web.service.PromotionController;
 
@@ -18,10 +17,6 @@ import com.wipro.coe.microservices.web.service.PromotionController;
 public class PromotionWebController {
 	
 
-
-
-	@Autowired
-	SampleClient  sampleClient;
 	
 	@Autowired
 	PromotionController  promotionController;
@@ -76,7 +71,7 @@ public class PromotionWebController {
        System.out.println(" \n\n\n\nPromotion returned from the service layer -" + promotions);;
        
        System.out.println(" ### some value printed got via configuration:" + someValue);
-        model.addAttribute("name",promotions);
+       model.addAttribute("name",promotions);
         
         return "promotions";
     }

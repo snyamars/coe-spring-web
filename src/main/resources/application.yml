@@ -1,8 +1,6 @@
 spring:
   profiles:
-    active: dev
-  application:
-    name: coe-web-promotions
+    active: default
   cloud:
     consul:
       host: localhost
@@ -17,5 +15,7 @@ spring:
     sensitive: false
 hello:
   world: localvalue
+
+  
   
   

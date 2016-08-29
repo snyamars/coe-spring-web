@@ -5,7 +5,7 @@
 
     <groupId>com.wipro.coe.microservices</groupId>
     <artifactId>coe-spring-web</artifactId>
-    <version>0.1.0</version>
+    <version>0.0.1-SNAPSHOT</version>
 
     <parent>
         <groupId>org.springframework.boot</groupId>
@@ -39,6 +39,8 @@
 		    <version>1.0.2.RELEASE</version>
 		    
 		</dependency>	
+
+		
 	    <dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-hateoas</artifactId>

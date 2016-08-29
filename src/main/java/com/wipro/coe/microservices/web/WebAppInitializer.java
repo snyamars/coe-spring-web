@@ -19,11 +19,12 @@ public class WebAppInitializer implements WebApplicationInitializer{
 		servletContext.addListener(new ContextLoaderListener(context));
 		ServletRegistration.Dynamic dispacher = servletContext.addServlet("DispacherServlet", new DispatcherServlet(context));
 		dispacher.setLoadOnStartup(1);
+		dispacher.addMapping("*.jsp");
 		dispacher.addMapping("*.html");
 		dispacher.addMapping("*.js");
-		dispacher.addMapping("*.jsp");
 		dispacher.addMapping("*.css");
 		dispacher.addMapping("*.json");
+
 		
 		
 	}
