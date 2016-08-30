@@ -14,15 +14,15 @@ import org.springframework.web.servlet.view.InternalResourceViewResolver;
 @ComponentScan(basePackages="com.wipro.coe.microservices.web")
 public class WebConfig extends WebMvcConfigurerAdapter {
 
-	
-	@Bean
-	public InternalResourceViewResolver getInternalResourceViewResolver()
-	{
-		InternalResourceViewResolver resolver = new InternalResourceViewResolver();
-		resolver.setPrefix("/WEB-INF/");
-		resolver.setSuffix(".jsp");
-		return resolver;
-	}
+//	
+//	@Bean
+//	public InternalResourceViewResolver getInternalResourceViewResolver()
+//	{
+//		InternalResourceViewResolver resolver = new InternalResourceViewResolver();
+//		resolver.setPrefix("/WEB-INF/");
+//		resolver.setSuffix(".jsp");
+//		return resolver;
+//	}
 	
 	
 	  @Override
@@ -34,7 +34,7 @@ public class WebConfig extends WebMvcConfigurerAdapter {
 	  public void addResourceHandlers(ResourceHandlerRegistry registry) {
 	    registry.addResourceHandler("/libs/**").addResourceLocations("/libs/");
 	    registry.addResourceHandler("/app/**").addResourceLocations("/app/");
-	    registry.addResourceHandler("/assets/**").addResourceLocations("/assets/");
+
 	}
 	 
 	 

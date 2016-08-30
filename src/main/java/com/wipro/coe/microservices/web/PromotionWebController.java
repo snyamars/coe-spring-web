@@ -73,7 +73,7 @@ public class PromotionWebController {
        System.out.println(" ### some value printed got via configuration:" + someValue);
        model.addAttribute("name",promotions);
         
-        return "promotions";
+        return "staticpromotions";
     }
 
 }
