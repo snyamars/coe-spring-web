@@ -16,18 +16,23 @@
         };
         
         promotion.remove = function(callback) {
+        	console.log("removed")
           promotion.resources.remove(function() {
             callback && callback(promotion);
           });
         };
-      } else {
+      } 
+      else {
         promotion.save = function(callback) {
-          Promotion.resources.save(promotion, function(promotion, headers) {
-            var deferred = $http.get(headers().location);
-            return SpringDataRestAdapter.process(deferred).then(function(newPromotion) {
+        	console.log(Promotion.resources);
+        	//console.log(promotion);
+            Promotion.resources.save(promotion, function(promotion, headers) {
+            //var deferred = $http.get(headers().location);
+            
+            //return SpringDataRestAdapter.process(deferred).then(function(newPromotion) {
         	// return function(newPromotion) {
-              callback && callback(new Promotion(newPromotion));
-            });
+              //callback && callback(new Promotion(newPromotion));
+            //});
           });
         };
       }

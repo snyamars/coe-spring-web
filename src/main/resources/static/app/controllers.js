@@ -2,6 +2,9 @@
   var AppController = function($scope, Promotion) {
     Promotion.query(function(response) {
       $scope.promotions = response ? response : [];
+      console.log("abc")
+      console.log($scope.promotions)
+      console.log(response)
     });
     
     $scope.addPromotion = function(description,promotionStartDate, promotionEndDate ) {
@@ -11,6 +14,8 @@
         promotionEndDate : promotionEndDate ,
         checked: false
       }).save(function(promotion) {
+    	  console.log("promotion");
+    	  console.log(promotion);
         $scope.promotions.push(promotion);
       });
       $scope.newPromotion = "";

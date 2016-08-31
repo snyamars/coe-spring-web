@@ -32,9 +32,15 @@ public class WebConfig extends WebMvcConfigurerAdapter {
 	  
 	 @Override
 	  public void addResourceHandlers(ResourceHandlerRegistry registry) {
-	    registry.addResourceHandler("/libs/**").addResourceLocations("/libs/");
-	    registry.addResourceHandler("/app/**").addResourceLocations("/app/");
-
+		 
+		 if (!registry.hasMappingForPattern("/lib/**")) {
+				registry.addResourceHandler("/lib/**").addResourceLocations(
+						"classpath:/static/lib/");
+		 }
+		if (!registry.hasMappingForPattern("/app/**")) {
+						registry.addResourceHandler("/app/**").addResourceLocations(
+								"classpath:/static/app/");
+		}
 	}
 	 
 	 

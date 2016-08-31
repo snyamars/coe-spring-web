@@ -1,14 +1,14 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <link rel="stylesheet" href="/libs/bootstrap-css-only/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="/lib/bootstrap-css-only/css/bootstrap.min.css" />
   </head>
   <body ng-app="myApp">
     <div class="container" ng-controller="AppController">
       <div class="page-header">
         <h1>A checklist - promotions.html</h1>
       </div>
-      <div class="alert alert-info" role="alert" ng-hide="promotions.length > 0 )" >
+      <div class="alert alert-info" role="alert" ng-hide="promotions.length > 0" >
         There are no promotions yet.
       </div>
       <form class="form-horizontal" role="form" ng-submit="addPromotion(newPromotion)">
@@ -19,9 +19,9 @@
               
               {{promotion.description}} </label>
               
-              <label>Promotion Start Date {{promotionStartDate}}</label>
+              <label>Promotion Start Date {{promotion.promotionStartDate}}</label>
               
-              <label>Promotion End Date {{promotionEndDate}}
+              <label>Promotion End Date {{promotion.promotionEndDate}}
             </label>
           </div>
           <div class="col-xs-3">
@@ -33,9 +33,9 @@
         </div>
         <hr/>
         <div class="input-group">
-          <input type="text" class="form-control" ng-model="newPromotion" placeholder="Enter the description..." />
-          <input type="text" class="form-control" ng-model="newPromotion" placeholder="Enter the promotion start date..." />
-          <input type="text" class="form-control" ng-model="newPromotion" placeholder="Enter the promotion end date..." />
+          <input type="text" class="form-control" ng-model="newPromotion.description" placeholder="Enter the description..." />
+          <input type="text" class="form-control" ng-model="newPromotion.promotionStartDate" placeholder="Enter the promotion start date..." />
+          <input type="text" class="form-control" ng-model="newPromotion.promotionEndDate" placeholder="Enter the promotion end date..." />
           <span class="input-group-btn">
             <button class="btn btn-default" type="submit" ng-disabled="!newPromotion" title="Add" Value="Add">
               <span class="glyphicon glyphicon-plus"></span>
@@ -44,10 +44,10 @@
         </div>
       </form>
     </div>
-    <script type="text/javascript" src="/libs/angular/angular.min.js"></script>
-    <script type="text/javascript" src="/libs/angular-resource/angular-resource.min.js"></script>
-    <script type="text/javascript" src="/libs/angular-spring-data-rest/dist/angular-spring-data-rest.min.js"></script>
-    <script type="text/javascript" src="/libs/lodash/dist/lodash.min.js"></script>
+    <script type="text/javascript" src="/lib/angular/angular.min.js"></script>
+    <script type="text/javascript" src="/lib/angular-resource/angular-resource.min.js"></script>
+    <script type="text/javascript" src="/lib/angular-spring-data-rest/dist/angular-spring-data-rest.min.js"></script>
+    <script type="text/javascript" src="/lib/lodash/dist/lodash.min.js"></script>
     <script type="text/javascript" src="/app/app.js"></script>
     <script type="text/javascript" src="/app/controllers.js"></script>
     <script type="text/javascript" src="/app/services.js"></script>

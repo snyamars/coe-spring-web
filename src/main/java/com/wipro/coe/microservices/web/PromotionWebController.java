@@ -1,6 +1,7 @@
 package com.wipro.coe.microservices.web;
 
 import java.util.Date;
+import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
@@ -29,25 +30,28 @@ public class PromotionWebController {
     @RequestMapping("/managepromotion")
    public String getPromotion(Model model  ) {
         
-        Long id = 119L;
+        Long id = 200L;
     	Promotion promotion = new Promotion();
         promotion.setId(id);
-        promotion.setDescription("added via feign 9");
+        promotion.setDescription("added via feign 200");
         promotion.setLastAction("add");
-        promotion.setLastActionBy("Ranajit 9Jana");
+        promotion.setLastActionBy("Ranajit 200 Jana");
         promotion.setPromotionEndDate(new Date());
         promotion.setPromotionStartDate(new Date());
-        promotion.setPromotionOwnerName("RJ 9dosp Feign");
+        promotion.setPromotionOwnerName("RJ 200 dosp Feign");
         
         
         promotionController.save(promotion);
         
-    	Resources<Resource<Promotion>> promotions = promotionController.getPromotions();
+    	//Resources<Resource<Promotion>> promotions = promotionController.getPromotions();
+        List<Promotion> promotions = promotionController.getPromotions();
         System.out.println(" \n\n\n\nPromotion returned from the service layer -" + promotions);;
 
-        promotion.setDescription("added via feign 5 updated");
+        promotion.setDescription("added via feign 200 updated");
         promotionController.update(id, promotion);
         
+        Promotion returnedpromotion = promotionController.getPromotion(id);
+        System.out.println(" \n\n\n\nPromotion returnedpromotion -" + returnedpromotion);;
     	promotions = promotionController.getPromotions();
         System.out.println(" \n\n\n\nPromotion returned from the service layer -" + promotions);;
         
