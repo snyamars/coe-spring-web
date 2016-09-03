@@ -1,0 +1,41 @@
+<div class="container" >
+  <h1>Promotion Details</h1>
+
+  <form novalidate="novalidate" class="form-horizontal">
+  <div class="control-group">
+      <label class="control-label" >Description:</label>
+
+      <div class="controls">
+        <input type="text" id="inputDescription" ng-model="editPromotion.description" />
+      </div>
+    </div>
+    <div class="control-group">
+      <label class="control-label" >Start Date</label>
+
+      <div class="controls">
+        <input type="text" id="inputPromotionStartDate" ng-model="editPromotion.promotionStartDate"  placeholder="yyyy-MM-dd" min="{{minDate | date:'yyyy-MM-dd'}}" />
+      </div>
+    </div>
+       <div class="control-group">
+      <label class="control-label" >End Date</label>
+
+      <div class="controls">
+        <input type="text" id="inputPromotionEndDate" ng-model="editPromotion.promotionEndDate"   placeholder="yyyy-MM-dd" min="{{minDate | date:'yyyy-MM-dd'}}"/>
+      </div>
+    </div>
+       <div class="control-group">
+      <label class="control-label" >Owner</label>
+
+      <div class="controls">
+        <input type="text" id="inputPromotionOwnerName" ng-model="editPromotion.promotionOwnerName" />
+      </div>
+    </div>
+      <br/><br/>
+    <div class="control-group">
+      <div class="controls">
+        <a ng-click="cancel()" class="btn btn-small btn-danger">Cancel</a>
+        <a ng-click="updatePromotion()" class="btn btn-small btn-primary">Update Promotion</a>
+      </div>
+    </div>
+  </form>
+</div>

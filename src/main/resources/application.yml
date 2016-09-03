@@ -10,7 +10,7 @@ spring:
         healthCheckInterval: 15s
     config:
       profile: dev
-      uri: http://localhost:8888 
+      uri: http://127.0.0.1:8888 
   health:
     sensitive: false
 hello:
