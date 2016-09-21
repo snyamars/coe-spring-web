@@ -38,6 +38,65 @@ public class PromotionBackendController {
 		
 	}
 
+	
+	@RequestMapping( value = "/authentication" , method = RequestMethod.GET)
+	public String doAuthentication()
+	{
+		String tokenString = 
+			"{" +
+					 " \"authorizationContextTokenSpecified\" : true, " +
+					  " \"authorizationContextToken\" : { " +  
+					   " \"tokenType\" : \"JWT\", "+  
+					    " \"tokenTypeSpecified\" : true, " +
+					   " \"tokenString\" : \"eyJhbGciOiJSUzI1NiIsIng1dCI6Ik5tSm1PR1V4TXpabFlqTTJaRFJoTlRabFlUQTFZemRoWlRSaU9XRTBOV0kyTTJKbU9UYzFaQSJ9.eyJodHRwOlwvXC93c28yLm9yZ1wvZ2F0ZXdheVwvYXBwbGljYXRpb25uYW1lIjoiT3BlbkFwcFNlcnZpY2UiLCJleHAiOjE0NzQ0OTIyNTksInN1YiI6Im9wc1VzZXJAY2FyYm9uLnN1cGVyIiwiaHR0cDpcL1wvd3NvMi5vcmdcL2dhdGV3YXlcL3N1YnNjcmliZXIiOiJhZG1pbkBjYXJib24uc3VwZXIiLCJodHRwOlwvXC93c28yLm9yZ1wvY2xhaW1zXC91c2VybmFtZSI6Im9wc1VzZXIiLCJpc3MiOiJodHRwOlwvXC93c28yLm9yZ1wvZ2F0ZXdheSIsImh0dHA6XC9cL3dzbzIub3JnXC9nYXRld2F5XC9lbmR1c2VyIjoib3BzVXNlckBjYXJib24uc3VwZXIiLCJodHRwOlwvXC93c28yLm9yZ1wvY2xhaW1zXC9sYXN0bmFtZSI6Im9wc1VzZXIiLCJodHRwOlwvXC93c28yLm9yZ1wvY2xhaW1zXC9yb2xlIjoiQXBwbGljYXRpb25cL09wZW5BcHBTZXJ2aWNlLG9wc0FkbWluLEludGVybmFsXC9ldmVyeW9uZSIsImlhdCI6MTQ3NDQ5MDU5OSwiaHR0cDpcL1wvd3NvMi5vcmdcL2NsYWltc1wvZnVsbG5hbWUiOiJvcHNVc2VyIn0.P0tDX3VdGeJ7hVvrk5u-Ntqc2_1M3PV2c6gMRvPygdKeqi0iPmi0tnoNMOUtoAQcEw_4unvTKrNCC93wles7K4plz0xQIr8R4VF1DWtzx3Na4JAuwGBlCa67VniyMlfWWQUnACjclM3PnccUL_z3RtAxqz6N3EGVzF6Y5HpyuRg\", "+
+					    " \"tokenStringSpecified\" : true "+
+					   "}, " +
+					  " \"authorizedUserSpecified\" : true, "+
+					  " \"authorizedUser\" : \"opsUser@carbon.super\", "+
+					  " \"errorMsgSpecified\" : false, " +
+					  " \"errorMsg\" : null, " +
+					  " \"expiryTimeSpecified\" : true, " +
+					  "  \"expiryTime\" : 2539," +
+					  " \"scopeSpecified\" : false," +
+					  " \"validSpecified\" : true, " +
+					  " \"valid\" : true, " +
+					  " \"scope\" : null " +
+					"}";
+
+		return tokenString;
+		
+	}
+	
+	
+	@RequestMapping( value = "/tokenvalidation" , method = RequestMethod.GET)
+	public String doTokenValidation()
+	{
+		String tokenString = 
+			"{" +
+				"	  \"jsonHeaderObject\" : { " +
+					    " \"x5t\" : \"NmJmOGUxMzZlYjM2ZDRhNTZlYTA1YzdhZTRiOWE0NWI2M2JmOTc1ZA\", " +
+					    " \"alg\" : \"RS256\" " +
+					  "} , " +
+					  " \"jsonClaimObject\" : { " +
+					    " \"http://wso2.org/claims/username\" : \"opsUser\", " +
+					    " \"sub\" : \"opsUser@carbon.super\", " + 
+					    " \"http://wso2.org/gateway/applicationname\" : \"OpenAppService\", " +
+					    " \"http://wso2.org/claims/role\" : \"Application/OpenAppService,Internal/everyone\", " +
+					    " \"http://wso2.org/claims/fullname\" : \"opsUser\", " + 
+					    " \"iss\" : \"http://wso2.org/gateway\", " + 
+					    " \"http://wso2.org/claims/lastname\" : \"opsUser\", " +
+					    " \"exp\" : 1474494422, " +
+					    " \"iat\" : 1474490599, " +
+					    " \"http://wso2.org/gateway/subscriber\" : \"admin@carbon.super\", " +
+					    " \"http://wso2.org/gateway/enduser\" : \"opsUser@carbon.super\" " + 
+					  "} " +
+					" } " ;
+
+		return tokenString;
+		
+	}
+	
+
 
 	private List<Promotion> retriveAllPromotions() {
 		Collection<Resource<Promotion>> promocol = cassandraClient.getAllPromotions().getContent();
