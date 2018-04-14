@@ -37,17 +37,17 @@ public class PromotionWebController {
 	@Value("${hello.world}")
 	String someValue;
 
-	@Value("${config.security.identity_server_ip}")
-	String identity_server;
+	//@Value("${config.security.identity_server_ip}")
+	//String identity_server;
 
-	@Value("${config.security.identity_server_port}")
-	String identity_server_port;
+	//@Value("${config.security.identity_server_port}")
+	//String identity_server_port;
 
-	@Value("${app_key}")
-	String app_key;
+	//@Value("${app_key}")
+	//String app_key;
 
-	@Value("${app_secret}")
-	String app_secret;
+	//@Value("${app_secret}")
+	//String app_secret;
 
 	// Validate security etc
 	@RequestMapping("/managepromotion")
@@ -57,6 +57,7 @@ public class PromotionWebController {
 		return "staticpromotions";
 	}
 
+	/*
 	// Validate security etc
 	@RequestMapping("/login")
 	public String getLogin(Model model) {
@@ -114,5 +115,6 @@ public class PromotionWebController {
 			return "listonlypromotions";
 		else
 			return "logindenied";
-	}
+	}*/
+	
 }

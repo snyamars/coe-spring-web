@@ -8,13 +8,13 @@ spring:
       discovery:
         healthCheckPath: /health
         healthCheckInterval: 15s
-    config:
-      uri: http://127.0.0.1:8888 
+
   health:
     sensitive: false
 hello:
   world: localvalue
 
   
-  
+ #config:
+ #   uri: http://127.0.0.1:8888 
   

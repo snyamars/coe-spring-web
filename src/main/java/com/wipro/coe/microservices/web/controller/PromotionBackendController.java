@@ -16,6 +16,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.netflix.hystrix.contrib.javanica.annotation.HystrixCommand;
 import com.wipro.coe.microservices.web.client.PromotionsCassandraClient;
+import com.wipro.coe.microservices.web.client.PromotionsH2Client;
 import com.wipro.coe.microservices.web.domain.Promotion;
 
 import lombok.extern.slf4j.Slf4j;
@@ -28,6 +29,9 @@ public class PromotionBackendController {
 	
 	@Autowired
 	PromotionsCassandraClient cassandraClient;
+	
+	@Autowired
+	PromotionsH2Client h2Client;
 
 	@HystrixCommand(fallbackMethod = "getDummyPromotions")
 	@RequestMapping( value = "/promotion" , method = RequestMethod.GET)
@@ -40,7 +44,7 @@ public class PromotionBackendController {
 
 	
 	@RequestMapping( value = "/authentication" , method = RequestMethod.GET)
-	public String doAuthentication()
+	public String doAuthentication1()
 	{
 		String tokenString = 
 			"{" +
@@ -69,7 +73,7 @@ public class PromotionBackendController {
 	
 	
 	@RequestMapping( value = "/tokenvalidation" , method = RequestMethod.GET)
-	public String doTokenValidation()
+	public String doTokenValidation3()
 	{
 		String tokenString = 
 			"{" +
@@ -99,7 +103,7 @@ public class PromotionBackendController {
 
 
 	private List<Promotion> retriveAllPromotions() {
-		Collection<Resource<Promotion>> promocol = cassandraClient.getAllPromotions().getContent();
+		Collection<Resource<Promotion>> promocol = h2Client.getAllPromotions().getContent();
 	    Iterator<Resource<Promotion>> promoiterator = promocol.iterator();
 	    
 	    List<Promotion> promolist = new ArrayList<Promotion>();
@@ -127,7 +131,7 @@ public class PromotionBackendController {
 	public Promotion getPromotion(@PathVariable Long id)
 	{
         
-        Resource<Promotion> promotionreturned = cassandraClient.get(id);
+        Resource<Promotion> promotionreturned = h2Client.get(id);
         Promotion promo = promotionreturned.getContent();
 	    String hrefString = promotionreturned.getId().getHref();
 	    String idStr = hrefString.substring(hrefString.lastIndexOf('/') +1);
@@ -152,7 +156,7 @@ public class PromotionBackendController {
         
         promotion.setId(newId);
         
-        cassandraClient.save( promotion);
+        h2Client.save( promotion);
 
 
         return retriveAllPromotions();
@@ -165,7 +169,7 @@ public class PromotionBackendController {
 	public List<Promotion> update(@PathVariable("id") Long id, @RequestBody Promotion promotion)
 	{
 
-        Resource<Promotion> promotionreturned = cassandraClient.update(id, promotion);
+        Resource<Promotion> promotionreturned = h2Client.update(id, promotion);
         Promotion promo = promotionreturned.getContent();
         
 
@@ -178,7 +182,7 @@ public class PromotionBackendController {
 	@RequestMapping(value = "/promotion/{id}", method = RequestMethod.DELETE)
 	public List<Promotion> delete(@PathVariable("id") Long id)
 	{
-        cassandraClient.delete(id);
+        h2Client.delete(id);
         
 
         
