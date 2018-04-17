@@ -44,7 +44,7 @@ node {
      }
    
       sh "sleep 3s"
-      sh "kubectl run --image=snyamars007/coe-spring-web:latest coe-spring-web  --port=2222"
+      sh "kubectl run --image=snyamars007/coe-spring-web:latest coe-spring-web  --port=8090"
       //sh "kubectl expose deployment customer-data-service1 --type=NodePort "
       sh "kubectl expose deployment coe-spring-web"
       // sh "kubectl create -f customer-data-service1.yaml"
