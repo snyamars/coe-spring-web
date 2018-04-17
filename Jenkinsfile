@@ -17,7 +17,7 @@ node {
   
    stage('packaging') {
         //sh "./mvnw package -Pprod -DskipTests"
-        sh "/usr/bin/mvn package -Pprod -DskipTests"
+        sh "/usr/bin/mvn package -DskipTests"
         archiveArtifacts artifacts: '**/target/*.jar', fingerprint: true
     }
   
