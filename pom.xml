@@ -6,7 +6,7 @@ xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
     <modelVersion>4.0.0</modelVersion>
 
     <groupId>com.wipro.coe.microservices</groupId>
-    <artifactId>coe-spring-web</artifactId>
+    <artifactId>coe-spring-webpromote</artifactId>
     <version>0.0.1-SNAPSHOT</version>
     <packaging>jar</packaging>
 
