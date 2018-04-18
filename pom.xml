@@ -101,6 +101,36 @@ xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-test</artifactId>
 		</dependency>
+	    	
+	    <!-- to enable ELK log monitoring --- -->
+	    	<!-- https://mvnrepository.com/artifact/ch.qos.logback/logback-classic -->
+			<dependency>
+			    <groupId>ch.qos.logback</groupId>
+			    <artifactId>logback-classic</artifactId>
+			    <version>1.2.3</version>
+			</dependency>
+		
+		<!-- https://mvnrepository.com/artifact/ch.qos.logback/logback-core -->
+			<dependency>
+			    <groupId>ch.qos.logback</groupId>
+			    <artifactId>logback-core</artifactId>
+			    <version>1.2.3</version>
+			</dependency>
+
+		<!-- https://mvnrepository.com/artifact/net.logstash.logback/logstash-logback-encoder -->
+			<dependency>
+			    <groupId>net.logstash.logback</groupId>
+			    <artifactId>logstash-logback-encoder</artifactId>
+			    <version>4.9</version>
+			</dependency>
+		
+		<!-- https://mvnrepository.com/artifact/org.jolokia/jolokia-core -->
+			<dependency>
+			    <groupId>org.jolokia</groupId>
+			    <artifactId>jolokia-core</artifactId>
+			    <version>1.3.7</version>
+			</dependency>
+	    
     </dependencies>
 
     <properties>
