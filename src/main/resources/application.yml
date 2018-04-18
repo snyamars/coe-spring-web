@@ -3,7 +3,7 @@ spring:
     active: dev
   cloud:
     consul:
-      host: 35.172.8.63
+      host: ec2-35-172-8-63.compute-1.amazonaws.com
       port: 8500
       discovery:
         healthCheckPath: /web/health
