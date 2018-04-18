@@ -3,7 +3,7 @@ spring:
     active: dev
   cloud:
     consul:
-      host: localhost
+      host: 35.172.8.63
       port: 8500
       discovery:
         healthCheckPath: /health
