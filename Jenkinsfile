@@ -45,7 +45,7 @@ node {
      }
    
       sh "sleep 3s"
-      sh "kubectl run --image=snyamars007/coe-spring-web:latest coe-spring-web  --port=8090"
+      sh "kubectl run --image=snyamars007/coe-spring-web:latest coe-spring-web  --port=8080"
       
       sh "kubectl expose deployment coe-spring-web"
      / **/
