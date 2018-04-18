@@ -1,2 +1,21 @@
+spring:
+  profiles:
+    active: dev
+  cloud:
+    consul:
+      host: 35.172.8.63
+      port: 8500
+      discovery:
+        healthCheckPath: /web/health
+        healthCheckInterval: 15s
+        hostname: ec2-35-153-35-158.compute-1.amazonaws.com
+        port: 80
+
+  health:
+    sensitive: false
 hello:
   world: localvalue
+
+  
+ #config:
+ #   uri: http://127.0.0.1:8888 
