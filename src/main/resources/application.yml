@@ -8,6 +8,8 @@ spring:
       discovery:
         healthCheckPath: /health
         healthCheckInterval: 15s
+        hostname: ec2-35-153-35-158.compute-1.amazonaws.com
+        port: 80
 
   health:
     sensitive: false
