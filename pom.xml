@@ -61,11 +61,11 @@ xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 		    <artifactId>spring-cloud-starter-hystrix-dashboard</artifactId>
 		    <version>1.0.4.RELEASE</version>
 		</dependency>
-		<dependency>
+		<!--dependency>
 		    <groupId>org.springframework.cloud</groupId>
 		    <artifactId>spring-cloud-config-client</artifactId>
 		    <version>1.1.2.RELEASE</version>
-		</dependency>
+		</dependency -->
 
 		<dependency>
 			<groupId>org.scala-lang</groupId>
