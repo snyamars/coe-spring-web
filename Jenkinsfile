@@ -36,7 +36,7 @@ node {
      try{
       //sh "kubectl --kubeconfig=/var/jenkins_home/kubeconfig delete deployment coe-spring-webpromote"
        //sh "helm --kubeconfig=/var/jenkins_home/kubeconfig install coe-spring-webpromote"
-       sh "helm --kubeconfig=/var/jenkins_home/kubeconfig install –repo https://example.com/charts/ nginx"
+       sh "helm --kubeconfig /var/jenkins_home/kubeconfig install –repo https://example.com/charts/ nginx"
        
      }catch(e){
       println("no prior deployment exists")
