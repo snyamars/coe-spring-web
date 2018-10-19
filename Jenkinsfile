@@ -34,20 +34,20 @@ node {
   ***/
       stage 'notifyKubernetes'
      try{
-      sh "kubectl delete deployment coe-spring-webpromote"
+      sh "kubectl --kubeconfig=kubeconfig delete deployment coe-spring-webpromote"
      }catch(e){
       println("no prior deployment exists")
      }
      try{
-          sh "kubectl delete svc coe-spring-webpromote"   
+          sh "kubectl --kubeconfig=kubeconfig delete svc coe-spring-webpromote"   
      }catch(e){
       println("no prior service exists")
      }
    
       sh "sleep 3s"
-      sh "kubectl run --image=snyamars007/coe-spring-webpromote:latest coe-spring-webpromote  --port=8091"
+      sh "kubectl run --kubeconfig=kubeconfig --image=snyamars007/coe-spring-webpromote:latest coe-spring-webpromote  --port=8091"
       
-      sh "kubectl expose deployment coe-spring-webpromote"
+      sh "kubectl --kubeconfig=kubeconfig expose deployment coe-spring-webpromote"
      / **/
     
       /***/   
