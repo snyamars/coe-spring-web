@@ -34,7 +34,8 @@ node {
   ***/
       stage 'notifyKubernetes'
      try{
-      sh "kubectl --kubeconfig=/var/jenkins_home/kubeconfig delete deployment coe-spring-webpromote"
+      //sh "kubectl --kubeconfig=/var/jenkins_home/kubeconfig delete deployment coe-spring-webpromote"
+       //sh "helm --kubeconfig=/var/jenkins_home/kubeconfig install coe-spring-webpromote"
      }catch(e){
       println("no prior deployment exists")
      }
