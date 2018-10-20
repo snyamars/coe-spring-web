@@ -1,7 +1,7 @@
 apiVersion: extensions/v1beta1
 kind: Deployment
 metadata:
-  name: coe-spring-web
+  name: coe-spring-webpromote
 spec:
   replicas: 1
   template:
@@ -10,8 +10,8 @@ spec:
         app: coe-spring-web
     spec:
       containers:
-        - name: coe-spring-web
-          image: snyamars007/coe-spring-web:latest
+        - name: coe-spring-webpromote
+          image: snyamars007/coe-spring-webpromote:latest
           ports:
-            - containerPort: 8080
+            - containerPort: 8091
               protocol: HTTP
