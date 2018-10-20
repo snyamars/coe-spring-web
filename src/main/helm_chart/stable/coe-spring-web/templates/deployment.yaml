@@ -7,7 +7,7 @@ spec:
   template:
     metadata:
       labels:
-        app: coe-spring-web
+        app: coe-spring-webpromote
     spec:
       containers:
         - name: coe-spring-webpromote
