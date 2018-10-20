@@ -35,9 +35,14 @@ node {
       stage 'notifyKubernetes'
      try{
       //sh "kubectl --kubeconfig=/var/jenkins_home/kubeconfig delete deployment coe-spring-webpromote"
-       //sh "helm --kubeconfig=/var/jenkins_home/kubeconfig install coe-spring-webpromote"
-       sh "helm install -kubeconfig /var/jenkins_home/kubeconfig –repo https://example.com/charts/ nginx"
-       
+       sh "export KUBECONFIG=/var/jenkins_home/kubeconfig"
+       sh "export TILLER_NAMESPACE=default"
+       sh "export HELM_TLS_CA_CERT=/var/jenkins_home/ca.pem"
+       sh "export HELM_TLS_CERT=/var/jenkins_home/admin.pem"
+       sh "export HELM_TLS_KEY=/var/jenkins_home/admin-key.pem"
+       sh "helm init --client-only"
+       sh "helm install --tiller-namespace default --host 0.0.0.0:31087 stable/coe-spring-web"
+              
      }catch(e){
       println("no prior deployment exists")
      }
