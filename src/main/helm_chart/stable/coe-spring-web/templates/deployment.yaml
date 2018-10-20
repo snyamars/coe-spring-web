@@ -1,0 +1,17 @@
+apiVersion: extensions/v1beta1
+kind: Deployment
+metadata:
+  name: coe-spring-web
+spec:
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: coe-spring-web
+    spec:
+      containers:
+        - name: coe-spring-web
+          image: snyamars007/coe-spring-web:latest
+          ports:
+            - containerPort: 8080
+              protocol: HTTP
