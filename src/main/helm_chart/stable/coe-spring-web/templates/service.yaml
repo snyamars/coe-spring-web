@@ -1,12 +1,12 @@
 apiVersion: v1
 kind: Service
 metadata:
-  name: coe-spring-web
+  name: coe-spring-webpromote
 spec:
  type: ClusterIP
  ports:
-   - name: coe-spring-web
-     port: 8080
-     targetPort: 8080
+   - name: coe-spring-webpromote
+     port: 8091
+     targetPort: 8091
  selector:
-   name: coe-spring-web
+   name: coe-spring-webpromote
